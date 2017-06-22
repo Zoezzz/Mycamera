@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    tools:context=".MainActivity" >
+
+ <RelativeLayout
+        android:id="@+id/take_photo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+        
+        <com.example.mycamera.camera.CameraPreview
+            android:id="@+id/cameraPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        
+        <com.example.mycamera.TempImageView
+        	android:id="@+id/tempImageView"
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent" />
+            
+        <com.example.mycamera.camera.FocusView
+            android:id="@+id/view_focus"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"/>
+    
+        <!--网格参考线-->
+        <com.example.mycamera.camera.ReferenceLine
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
+            android:lineSpacingMultiplier="2.0"
+            android:text="\n请参照红色网格"
+            android:textSize="8pt"/>    
+            
+         <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="150dp"
+            android:onClick="takePhoto"
+            android:padding="12dp"
+            android:src="@drawable/ic_takephoto_click"/>
+
+       <RelativeLayout
+            android:id="@+id/tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="12dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="12dp"
+                android:src="@drawable/ic_close_click"
+                android:layout_alignParentRight="true"
+                android:onClick="close"/>
+        </RelativeLayout>
+        
+        <SeekBar
+            android:id="@+id/zoomSeekBar"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_above="@id/tool"
+        	android:layout_marginBottom="5dp"
+        	android:layout_marginLeft="150dp"
+            android:layout_marginRight="150dp"
+        	android:max="10"
+        	android:visibility="gone"/>
+    </RelativeLayout>
+</RelativeLayout>
